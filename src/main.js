@@ -6,4 +6,4 @@ import axios from 'axios'
 
 axios.defaults.baseURL = 'https://toa-backend.herokuapp.com/'
 
-createApp(App).use(store).use(router).mount('#app')
+createApp(App).use(store).use(router, axios).mount('#app')
