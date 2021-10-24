@@ -18,7 +18,15 @@
             <div class="column is-10 has-text-centered"><p class="is-size-5">{{ singleEvent.description }}</p></div>
             <div class="column is-1"></div>
             <div class="column is-1"></div>
-            <div class="column is-10 has-text-centered"><p class="is-size-5">Event entrants: {{ singleEvent.entrants }}</p></div>
+            <div class="column is-10 has-text-centered">
+                    <p class="is-size-4">Entrants:</p>
+                <div 
+                    v-for="entrant in singleEvent.entrants" 
+                    v-bind:key="entrant._id"
+                >
+                    <p class="is-size-5">{{ entrant.username }}</p>
+                </div>
+            </div>
             <div class="column is-1"></div>
         </div>
     </div>
