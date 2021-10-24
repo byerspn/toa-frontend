@@ -1,6 +1,6 @@
 <template>
   <div id="wrapper">
-    <nav class="navbar is-warning">
+    <nav class="navbar is-info">
       <div class="navbar-brand">
         <router-link to="/" class="navbar-item">
           <strong>TOA</strong>
@@ -17,7 +17,7 @@
           <router-link to="/events" class="navbar-item">Browse Events</router-link>
           <router-link to="/create-event" class="navbar-item">Create Event</router-link>
           <router-link to="/log-in" class="navbar-item">Log in</router-link>
-          <router-link to="/log-in" class="navbar-item">Log out</router-link>
+          <router-link to="/log-out" class="navbar-item">Log out</router-link>
         </div>
       </div>
     </nav>
