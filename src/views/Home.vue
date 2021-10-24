@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <section class="hero is-medium is-link">
+    <section class="hero is-large is-link">
       <div class="hero-body has-text-centered">
         <p class="title">Tournament Organizer Assistant</p>
         <p class="subtitle">Create an event, or browse events created by others.</p>
