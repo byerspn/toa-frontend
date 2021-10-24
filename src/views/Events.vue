@@ -1,5 +1,17 @@
 <template>
-    <div class="about">
-        <h1>This is the browse events page</h1>
+    <div class="event-page">
+        <section class="hero is-small is-link">
+            <div class="hero-body has-text-centered">
+                <p class="title">Most Recently Created Events</p>
+            </div>
+        </section>
+
+        <div class="columns is-multiline">
+            <div class="column is-12"></div>
+        </div>
     </div>
 </template>
+
+<script>
+    // export default
+</script>
