@@ -71,16 +71,18 @@
                     axios
                         .post("/users/signin", signinData)
                         .then(res => {
-                            const token = res.data.token
+                            const token = res.data.token[0]
+                            const userId = res.data.token[1]
 
                             this.$store.commit('setToken', token)
 
                             axios.defaults.headers.common["Authorization"] = `Bearer ${token}`
 
                             localStorage.setItem("token", token)
+                            localStorage.setItem("userId", userId)
 
                             this.success = true
-                            // console.log(res)
+                            console.log(res)
                         })
                         .catch(error => {
                             if (error.response) {

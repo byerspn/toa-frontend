@@ -19,7 +19,9 @@
             <div class="column is-1"></div>
             <div class="column is-1"></div>
             <div class="column is-10 has-text-centered">
-                    <p class="is-size-4">Entrants:</p>
+                <button @click="register()" class="is-size-4" v-if="$store.state.isAuthenticated">Register for Event</button>
+                <router-link to="/signin"><button @click="register()" class="is-size-4" v-if="!$store.state.isAuthenticated">Sign in to register for event</button></router-link>
+                <p class="is-size-4">Entrants:</p>
                 <div 
                     v-for="entrant in singleEvent.entrants" 
                     v-bind:key="entrant._id"
@@ -39,7 +41,8 @@
         name: 'EventPage',
         data() {
             return {
-                singleEvent: {}
+                singleEvent: {},
+                success: false
             }
         },
         components: {
@@ -54,6 +57,27 @@
                     .get(`/events/${ this.$route.params.id }`)
                     .then(res => {
                         this.singleEvent = res.data
+                    })
+                    .catch(error => {
+                        console.log(error)
+                    })
+            },
+            register() {
+                const updatedEntrants =  this.singleEvent.entrants
+                updatedEntrants.push(this.$store.state.userId)
+
+                const eventRegistered = {
+                    name: this.singleEvent.name,
+                    location: this.singleEvent.location,
+                    dateandtime: this.singleEvent.dateandtime,
+                    description: this.singleEvent.description,
+                    entrants: updatedEntrants,
+                    owner: this.singleEvent.owner
+                }
+                axios
+                    .put(`/events/${ this.$route.params.id }/register`, eventRegistered)
+                    .then(res => {
+                        this.success = true
                     })
                     .catch(error => {
                         console.log(error)

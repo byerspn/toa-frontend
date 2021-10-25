@@ -46,6 +46,7 @@
       this.$store.commit('initializeStore')
 
       const token = this.$store.state.token
+      const userId = this.$store.state.userId
 
       if (token) {
         axios.defaults.headers.common['Authorization'] = `Bearer ${this.$store.state.token}`
@@ -57,8 +58,7 @@
       logout() {
         axios.defaults.headers.common["Authorization"] = ""
         localStorage.removeItem("token")
-        localStorage.removeItem("username")
-        localStorage.removeItem("userid")
+        localStorage.removeItem("userId")
 
         this.$store.commit("removeToken")
 
