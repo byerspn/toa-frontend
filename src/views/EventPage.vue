@@ -78,8 +78,10 @@
                     .put(`/events/${ this.$route.params.id }/register`, eventRegistered)
                     .then(res => {
                         this.success = true
+                        this.getSingleEvent()
                     })
                     .catch(error => {
+                        // console.log('catch of eventRegistered()')
                         console.log(error)
                     })
             }
