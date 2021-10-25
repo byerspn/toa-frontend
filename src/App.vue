@@ -28,7 +28,7 @@
 
     <footer class="footer">
       <p class="has-text-centered">
-        footer. add links n stuff
+        TOA . Created by Parker Byers
       </p>
     </footer>
   </div>
