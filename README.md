@@ -1,19 +1,18 @@
-# tournament_organizer_assistant_vue
+# Tournament Organizer Assistant #
+An application that assists in entering and managing tournament events.
 
-## Project setup
-```
-npm install
-```
+## Description ##
+TOA is an application that aims to help tournament goers and organizers alike. Organizers can create events, keep track of attendees, and view bracket templates according to the expected number of attendees. Entrants can register for events and get an idea of what the bracket will look like.
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+## Technologies Used ##
+This frontend uses: Vue, Javascript, HTML, Bulma (css), and axios.
 
-### Compiles and minifies for production
-```
-npm run build
-```
+## Getting Started
+To use the application, visit the website where it is deployed- <https://tournament-organizer-assistant.herokuapp.com/>.
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+## Contribution Guidelines
+To identify bugs, write an issue. Title should describe bug result and comment should describe what causes it and any suggestions.
+
+To contribute, make a pull request.
+
+To propose an improvement, write an issue. Title should be the feature description and comment should be details and suggestions on how to make it happen.
