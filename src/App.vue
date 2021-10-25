@@ -40,6 +40,9 @@
       return {
         showMobileMenu: false,
       }
+    },
+    beforeCreate() {
+      this.$store.commit('initializeStore')
     }
   }
 </script>

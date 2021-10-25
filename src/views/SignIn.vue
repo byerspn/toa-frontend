@@ -1,5 +1,5 @@
 <template>
-    <div class="sign-up-page">
+    <div class="sign-in-page">
         <div class="columns">
             <div class="column is-4"></div>
             <div class="column is-4">
@@ -40,7 +40,7 @@
 <script>
     import axios from 'axios'
     export default {
-        name: 'SignUp',
+        name: 'SignIn',
         data() {
             return {
                 username: '',
@@ -51,7 +51,40 @@
         },
         methods: {
             submitForm() {
+                this.errors = []
 
+                if(this.email === '') {
+                    this.errors.push('Email field cannot be left blank.')
+                }
+
+                if(this.password === '') {
+                    this.errors.push('Password field cannot be left blank.')
+                }
+
+                if(!this.errors.length) {
+                    const signinData = {
+                        email: this.email,
+                        password: this.password
+                    }
+
+                    axios
+                        .post("/users/signin", signinData)
+                        .then(res => {
+                            this.success = true
+                        })
+                        .catch(error => {
+                            if (error.response) {
+                                this.errors.push(`Something went wrong. Please try again.`)
+                                this.errors.push(`Error given: ${JSON.stringify(error.response.data)}. Make sure only numbers appear in the phone field.`)
+
+                                // console.log(JSON.stringify(error.response.data))
+                            } else if (error.message) {
+                                this.errors.push('Something went wrong. Please try again.')
+
+                                // console.log(JSON.stringify(error))
+                            }
+                        }) 
+                }
             }
         }
     }
