@@ -77,8 +77,8 @@
                     return originalEntrant._id
                 })
                 updatedEntrants.push(this.$store.state.userId)
-                console.log('userid pushed to updated entrants')
-                console.log(updatedEntrants)
+                // console.log('userid pushed to updated entrants')
+                // console.log(updatedEntrants)
 
                 const eventRegistered = {
                     name: this.singleEvent.name,
@@ -93,11 +93,11 @@
                     .then(res => {
                         this.success = true
                         this.getSingleEvent()
-                        console.log('updated with reg')
+                        // console.log('updated with reg')
                     })
                     .catch(error => {
                         // console.log('catch of eventRegistered()')
-                        console.log(error)
+                        // console.log(error)
                     })
             }
         }

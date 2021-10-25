@@ -82,7 +82,7 @@
                             localStorage.setItem("userId", userId)
 
                             this.success = true
-                            console.log(res)
+                            // console.log(res)
                         })
                         .catch(error => {
                             if (error.response) {
