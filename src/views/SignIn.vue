@@ -75,12 +75,12 @@
 
                             this.$store.commit('setToken', token)
 
-                            axios.defaults.headers.common["Authorization"] = "Token " + token
+                            axios.defaults.headers.common["Authorization"] = `Bearer ${token}`
 
                             localStorage.setItem("token", token)
 
                             this.success = true
-                            console.log(res)
+                            // console.log(res)
                         })
                         .catch(error => {
                             if (error.response) {
