@@ -5,7 +5,7 @@ An application that assists in entering and managing tournament events.
 TOA is an application that aims to help tournament goers and organizers alike. Organizers can create events, keep track of attendees, and view bracket templates according to the expected number of attendees. Entrants can register for events and get an idea of what the bracket will look like.
 
 ## Technologies Used ##
-Vue, Javascript, HTML, Bulma (css), and axios are utilized.
+This frontend uses: Vue, Javascript, HTML, Bulma (css), and axios are utilized.
 
 ## Getting Started
 To use the application, visit the website where it is deployed- <https://tournament-organizer-assistant.herokuapp.com/>.
