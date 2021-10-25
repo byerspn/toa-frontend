@@ -15,9 +15,9 @@
       <div class="navbar-menu" id="navbar-menu" v-bind:class="{'is-active': showMobileMenu }">
         <div class="navbar-end">
           <router-link to="/events" class="navbar-item">Browse Events</router-link>
-          <router-link to="/create-event" class="navbar-item">Create Event</router-link>
-          <router-link to="/signin" class="navbar-item">Sign in</router-link>
-          <!-- <router-link to="/signout" class="navbar-item">Sign out</router-link> -->
+          <router-link to="/create-event" class="navbar-item" v-if="$store.state.isAuthenticated">Create Event</router-link>
+          <router-link to="/signin" class="navbar-item" v-if="!$store.state.isAuthenticated">Sign in</router-link>
+          <a @click="logout()" class="navbar-item" v-if="$store.state.isAuthenticated">Sign out</a>
         </div>
       </div>
     </nav>
@@ -35,7 +35,7 @@
 </template>
 
 <script>
-import axios from 'axios'
+  import axios from 'axios'
   export default {
     data() {
       return {
@@ -51,6 +51,18 @@ import axios from 'axios'
         axios.defaults.headers.common['Authorization'] = "Token " + token
       } else {
         axios.defaults.headers.common['Authorization'] = ""
+      }
+    },
+    methods: {
+      logout() {
+        axios.defaults.headers.common["Authorization"] = ""
+        localStorage.removeItem("token")
+        localStorage.removeItem("username")
+        localStorage.removeItem("userid")
+
+        this.$store.commit("removeToken")
+
+        this.$router.push("/")
       }
     }
   }
