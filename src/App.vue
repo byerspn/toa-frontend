@@ -16,8 +16,8 @@
         <div class="navbar-end">
           <router-link to="/events" class="navbar-item">Browse Events</router-link>
           <router-link to="/create-event" class="navbar-item">Create Event</router-link>
-          <router-link to="/log-in" class="navbar-item">Log in</router-link>
-          <router-link to="/log-out" class="navbar-item">Log out</router-link>
+          <router-link to="/signin" class="navbar-item">Sign in</router-link>
+          <!-- <router-link to="/signout" class="navbar-item">Sign out</router-link> -->
         </div>
       </div>
     </nav>
@@ -35,6 +35,7 @@
 </template>
 
 <script>
+import axios from 'axios'
   export default {
     data() {
       return {
@@ -43,6 +44,14 @@
     },
     beforeCreate() {
       this.$store.commit('initializeStore')
+
+      const token = this.$store.state.token
+
+      if (token) {
+        axios.defaults.headers.common['Authorization'] = "Token " + token
+      } else {
+        axios.defaults.headers.common['Authorization'] = ""
+      }
     }
   }
 </script>

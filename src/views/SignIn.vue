@@ -50,6 +50,7 @@
             }
         },
         methods: {
+            // may have to use async await
             submitForm() {
                 this.errors = []
 
@@ -70,11 +71,21 @@
                     axios
                         .post("/users/signin", signinData)
                         .then(res => {
+                            const token = res.data.token
+
+                            this.$store.commit('setToken', token)
+
+                            axios.defaults.headers.common["Authorization"] = "Token " + token
+
+                            localStorage.setItem("token", token)
+
                             this.success = true
+                            console.log(res)
                         })
                         .catch(error => {
                             if (error.response) {
                                 this.errors.push(`Something went wrong. Please try again.`)
+
                                 this.errors.push(`Error given: ${JSON.stringify(error.response.data)}. Make sure only numbers appear in the phone field.`)
 
                                 // console.log(JSON.stringify(error.response.data))
