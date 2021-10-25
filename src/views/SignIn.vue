@@ -24,6 +24,10 @@
                         </div>
                     </div>
 
+                    <div class="notification is-success" v-if="success">
+                        <p>Successfully logged in. <router-link to="/create-event">Create event</router-link> or <router-link to="/events">browse events</router-link>.</p>
+                    </div>
+
                     <p>Or <router-link to="/signup">click here</router-link> to sign up</p>
                 </form>
             </div>
@@ -40,11 +44,9 @@
         data() {
             return {
                 username: '',
-                email: '',
-                phone: '',
                 password: '',
-                password2: '',
-                errors: []
+                errors: [],
+                success: false
             }
         },
         methods: {
